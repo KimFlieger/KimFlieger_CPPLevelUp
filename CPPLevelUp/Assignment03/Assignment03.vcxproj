@@ -115,7 +115,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Belt.cpp" />
+    <ClCompile Include="Human.cpp" />
+    <ClCompile Include="Laces.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Shoes.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Belt.h" />
+    <ClInclude Include="Human.h" />
+    <ClInclude Include="Laces.h" />
+    <ClInclude Include="Shoes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,5 +2,39 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Human.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Belt.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Shoes.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Laces.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{c5a2362e-bdb3-4f5d-891f-78a37b0078e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{862c52ae-b726-4185-bd94-3ed17355d5ce}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Human.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Belt.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Shoes.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Laces.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
