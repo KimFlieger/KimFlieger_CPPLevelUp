@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Assignment04", "Assignment0
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GuessingGame", "GuessingGame\GuessingGame.vcxproj", "{1F3F0869-0C48-4E10-8BC6-27DEAE23B87B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Kickfighter", "Kickfighter\Kickfighter.vcxproj", "{A847C1B1-91FF-4D08-B284-766095FAB57F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -85,6 +87,18 @@ Global
 		{1F3F0869-0C48-4E10-8BC6-27DEAE23B87B}.Release|x64.Build.0 = Release|x64
 		{1F3F0869-0C48-4E10-8BC6-27DEAE23B87B}.Release|x86.ActiveCfg = Release|Win32
 		{1F3F0869-0C48-4E10-8BC6-27DEAE23B87B}.Release|x86.Build.0 = Release|Win32
+		{A847C1B1-91FF-4D08-B284-766095FAB57F}.Debug|ARM.ActiveCfg = Debug|Win32
+		{A847C1B1-91FF-4D08-B284-766095FAB57F}.Debug|ARM64.ActiveCfg = Debug|Win32
+		{A847C1B1-91FF-4D08-B284-766095FAB57F}.Debug|x64.ActiveCfg = Debug|x64
+		{A847C1B1-91FF-4D08-B284-766095FAB57F}.Debug|x64.Build.0 = Debug|x64
+		{A847C1B1-91FF-4D08-B284-766095FAB57F}.Debug|x86.ActiveCfg = Debug|Win32
+		{A847C1B1-91FF-4D08-B284-766095FAB57F}.Debug|x86.Build.0 = Debug|Win32
+		{A847C1B1-91FF-4D08-B284-766095FAB57F}.Release|ARM.ActiveCfg = Release|Win32
+		{A847C1B1-91FF-4D08-B284-766095FAB57F}.Release|ARM64.ActiveCfg = Release|Win32
+		{A847C1B1-91FF-4D08-B284-766095FAB57F}.Release|x64.ActiveCfg = Release|x64
+		{A847C1B1-91FF-4D08-B284-766095FAB57F}.Release|x64.Build.0 = Release|x64
+		{A847C1B1-91FF-4D08-B284-766095FAB57F}.Release|x86.ActiveCfg = Release|Win32
+		{A847C1B1-91FF-4D08-B284-766095FAB57F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
