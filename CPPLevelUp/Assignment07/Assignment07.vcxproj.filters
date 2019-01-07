@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Shape">
+      <UniqueIdentifier>{afc28dac-af52-42f1-b2cb-335c824a2cbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TwoDimensional">
+      <UniqueIdentifier>{8ebd50bf-ff48-4965-a428-5ccf20edad5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThreeDimensional">
+      <UniqueIdentifier>{6a18c671-0c56-48ad-b648-ef25a81ff24e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TwoDimensional\Circle">
+      <UniqueIdentifier>{4970fa70-5d2c-4a23-9878-c3fb908bae8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TwoDimensional\Rectangle">
+      <UniqueIdentifier>{3a603e91-fe7e-4800-9345-54a66b495735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThreeDimensional\Cube">
+      <UniqueIdentifier>{49be0c8e-9b82-4cc7-bac0-0ac6496e3cfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThreeDimensional\Sphere">
+      <UniqueIdentifier>{06724493-0344-4d17-beec-25af544f46c0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Shape.cpp">
+      <Filter>Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="TwoDimensional.cpp">
+      <Filter>TwoDimensional</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreeDimensional.cpp">
+      <Filter>ThreeDimensional</Filter>
+    </ClCompile>
+    <ClCompile Include="Cirlce.cpp">
+      <Filter>TwoDimensional\Circle</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectanlge.cpp">
+      <Filter>TwoDimensional\Rectangle</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>ThreeDimensional\Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sphere.cpp">
+      <Filter>ThreeDimensional\Sphere</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Shape.h">
+      <Filter>Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="TwoDimensional.h">
+      <Filter>TwoDimensional</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeDimensional.h">
+      <Filter>ThreeDimensional</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>TwoDimensional\Circle</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>TwoDimensional\Rectangle</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>ThreeDimensional\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="Shapes.h" />
+    <ClInclude Include="Sphere.h">
+      <Filter>ThreeDimensional\Sphere</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

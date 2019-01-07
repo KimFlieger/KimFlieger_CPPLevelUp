@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Assignment04", "Assignment0
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GuessingGame", "GuessingGame\GuessingGame.vcxproj", "{1F3F0869-0C48-4E10-8BC6-27DEAE23B87B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Assignment07", "Assignment07\Assignment07.vcxproj", "{9E87C5A8-4137-4B22-BDC6-E33FD34E87A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -85,6 +87,16 @@ Global
 		{1F3F0869-0C48-4E10-8BC6-27DEAE23B87B}.Release|x64.Build.0 = Release|x64
 		{1F3F0869-0C48-4E10-8BC6-27DEAE23B87B}.Release|x86.ActiveCfg = Release|Win32
 		{1F3F0869-0C48-4E10-8BC6-27DEAE23B87B}.Release|x86.Build.0 = Release|Win32
+		{9E87C5A8-4137-4B22-BDC6-E33FD34E87A8}.Debug|ARM.ActiveCfg = Debug|Win32
+		{9E87C5A8-4137-4B22-BDC6-E33FD34E87A8}.Debug|ARM64.ActiveCfg = Debug|Win32
+		{9E87C5A8-4137-4B22-BDC6-E33FD34E87A8}.Debug|x64.ActiveCfg = Debug|Win32
+		{9E87C5A8-4137-4B22-BDC6-E33FD34E87A8}.Debug|x86.ActiveCfg = Debug|Win32
+		{9E87C5A8-4137-4B22-BDC6-E33FD34E87A8}.Debug|x86.Build.0 = Debug|Win32
+		{9E87C5A8-4137-4B22-BDC6-E33FD34E87A8}.Release|ARM.ActiveCfg = Release|Win32
+		{9E87C5A8-4137-4B22-BDC6-E33FD34E87A8}.Release|ARM64.ActiveCfg = Release|Win32
+		{9E87C5A8-4137-4B22-BDC6-E33FD34E87A8}.Release|x64.ActiveCfg = Release|Win32
+		{9E87C5A8-4137-4B22-BDC6-E33FD34E87A8}.Release|x86.ActiveCfg = Release|Win32
+		{9E87C5A8-4137-4B22-BDC6-E33FD34E87A8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
