@@ -6,8 +6,8 @@ class SharedPointer
 {
 public:
 	SharedPointer<T>()	noexcept {}
-	SharedPointer<T>(T* data) : mData(data) noexcept {}
-	~SharedPointer<T>() noexcept { Release(); }
+	SharedPointer<T>(T* data) : mData(data) {}
+	~SharedPointer<T>() { Release(); }
 
 	T& operator[](int index) const { return Get()[index]; }
 	T& operator* () const	{ return *mData; }
