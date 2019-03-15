@@ -6,10 +6,22 @@
       <Filter>Precompiled</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="SteeringBehavior.cpp">
+      <Filter>Butterflies</Filter>
+    </ClCompile>
+    <ClCompile Include="Agent.cpp">
+      <Filter>Butterflies</Filter>
+    </ClCompile>
+    <ClCompile Include="Butterfly.cpp">
+      <Filter>Butterflies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Precompiled">
       <UniqueIdentifier>{92f1c73a-c2ea-4322-afec-74c388668350}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Butterflies">
+      <UniqueIdentifier>{17326366-f86d-4101-a670-708fd8c8c029}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -17,5 +29,14 @@
       <Filter>Precompiled</Filter>
     </ClInclude>
     <ClInclude Include="Character.h" />
+    <ClInclude Include="Agent.h">
+      <Filter>Butterflies</Filter>
+    </ClInclude>
+    <ClInclude Include="SteeringBehavior.h">
+      <Filter>Butterflies</Filter>
+    </ClInclude>
+    <ClInclude Include="Butterfly.h">
+      <Filter>Butterflies</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
