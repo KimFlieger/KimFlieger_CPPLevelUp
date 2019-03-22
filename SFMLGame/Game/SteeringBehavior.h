@@ -6,8 +6,19 @@ namespace AI
 	class SteeringBehavior
 	{
 	public:
-		sf::Vector2<float> CalculateSeek(Agent& agent);
-		sf::Vector2<float> CalculateWander(Agent& agent);
+		SteeringBehavior(const char* name)
+			:mName(name)
+			, mActive(false)
+			, mWeight(1)
+		{
+
+		}
+
+		~SteeringBehavior() {}
+
+		virtual sf::Vector2<float> Calculate(Agent& agent) = 0;
+
+		const char* GetName() const { return mName; }
 
 		void SetActive(bool a) { mActive = a; }
 		bool GetActive() { return mActive; }

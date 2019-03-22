@@ -1,22 +1,34 @@
 #pragma once
 #include "Agent.h"
+#include "SteeringModule.h"
 #include "SteeringBehavior.h"
+#include "Behaviors.h"
 
 class Butterfly : public AI::Agent
 {
 public:
-	void Initialize();
-	void Update(float deltaTime);
+	Butterfly()
+		:Agent(*this)
+		, mShape(10.0f)
+	{
+		mDestination = sf::Vector2<float>(100.0f, 100.0f);
+	}
+
+	void Initialize(float screenWidth, float screenHeight);
+	void Update(sf::Time deltaTime);
 	void Render();
 
-private:
-	AI::SteeringBehavior* mSteeringBehavior;
+	void ChangeSteering(const char* name, bool active) { mSteeringModule->GetBehavior(name)->SetActive(active); }
 
-	//int mTextureIds[16];
+	sf::CircleShape& GetShape() { return mShape; }
+	sf::Texture& GetTextures() { return mTextureIds[0]; }
+
+private:
+	AI::SteeringModule* mSteeringModule;
+	sf::CircleShape mShape;
+
+	sf::Texture mTextureIds[1];
 	float mScreenHeight;
 	float mScreenWidth;
 	float mAngle;
-
-	sf::Vector2<float> mPosition;
-	sf::Vector2<float> mDestination;
 };

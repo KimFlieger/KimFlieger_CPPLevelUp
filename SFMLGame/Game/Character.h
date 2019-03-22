@@ -1,5 +1,4 @@
 #pragma once
-#include "SFML/Graphics.hpp"
 
 class Character
 {
@@ -23,7 +22,7 @@ public:
 
 public:
 	sf::CircleShape mShape;
-	double mSpeed = 0.01f;
+	double mSpeed = 0.1f;
 	double mXPosition = 5.0f;
 	double mYPosition = 5.0f;
 };

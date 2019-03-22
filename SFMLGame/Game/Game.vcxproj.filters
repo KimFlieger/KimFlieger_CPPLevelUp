@@ -15,6 +15,12 @@
     <ClCompile Include="Butterfly.cpp">
       <Filter>Butterflies</Filter>
     </ClCompile>
+    <ClCompile Include="SteeringModule.cpp">
+      <Filter>Butterflies</Filter>
+    </ClCompile>
+    <ClCompile Include="MathUtilties.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Precompiled">
@@ -22,6 +28,9 @@
     </Filter>
     <Filter Include="Butterflies">
       <UniqueIdentifier>{17326366-f86d-4101-a670-708fd8c8c029}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{c48d3f36-7d89-491e-aa49-fd5a66b7a1d4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +46,15 @@
     </ClInclude>
     <ClInclude Include="Butterfly.h">
       <Filter>Butterflies</Filter>
+    </ClInclude>
+    <ClInclude Include="SteeringModule.h">
+      <Filter>Butterflies</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviors.h">
+      <Filter>Butterflies</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtilites.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
