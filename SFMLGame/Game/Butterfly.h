@@ -20,7 +20,6 @@ public:
 
 	void ChangeSteering(const char* name, bool active) { mSteeringModule->GetBehavior(name)->SetActive(active); }
 
-	sf::CircleShape& GetShape() { return mShape; }
 	sf::Texture& GetTextures() { return mTextureIds[0]; }
 
 private:

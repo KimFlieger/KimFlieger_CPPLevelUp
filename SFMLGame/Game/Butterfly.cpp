@@ -47,5 +47,5 @@ void Butterfly::Update(sf::Time deltaTime)
 
 void Butterfly::Render(sf::RenderWindow& window)
 {
-	window.draw(GetShape());
+	window.draw(mShape);
 }

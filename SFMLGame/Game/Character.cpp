@@ -14,7 +14,7 @@ void Character::Initialize()
 
 void Character::Render(sf::RenderWindow& window)
 {
-	window.draw(GetShape());
+	window.draw(mShape);
 
 	for (unsigned int i = 0; i < kBulletMax; ++i)
 	{

@@ -7,7 +7,7 @@ class Character
 public:
 	Character()
 		:mShape(10.0f)
-		, mPosition(5.0f,5.0f)
+		, mPosition(640.0f,480.0f)
 	{
 	}
 
@@ -19,11 +19,10 @@ public:
 	void Render(sf::RenderWindow& window);
 
 	//Getters
-	sf::CircleShape& GetShape() { return mShape; }
 
 	//Setters
 
-public:
+protected:
 	void Fire();
 
 	sf::CircleShape mShape;
