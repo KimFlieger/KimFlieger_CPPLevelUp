@@ -1,19 +1,22 @@
 #pragma once
 
+#include "Bullet.h"
+
 class Character
 {
 public:
 	Character()
 		:mShape(10.0f)
+		, mPosition(5.0f,5.0f)
 	{
-		mShape.setFillColor(sf::Color::Red);
 	}
 
 	~Character() {}
 
 	//TODO Implement Move/Copy
-
-	void Update();
+	void Initialize();
+	void Update(sf::Time deltaTime);
+	void Render(sf::RenderWindow& window);
 
 	//Getters
 	sf::CircleShape& GetShape() { return mShape; }
@@ -21,9 +24,15 @@ public:
 	//Setters
 
 public:
+	void Fire();
+
 	sf::CircleShape mShape;
+
+	const unsigned int kBulletMax = 1000;
+	int mBulletIndex = 0;
+	Bullet *mBullets = new Bullet[kBulletMax];
+
 	double mSpeed = 0.1f;
-	double mXPosition = 5.0f;
-	double mYPosition = 5.0f;
+	sf::Vector2<float> mPosition;
 };
 

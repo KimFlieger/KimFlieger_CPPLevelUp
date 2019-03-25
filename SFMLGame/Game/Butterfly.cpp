@@ -11,11 +11,13 @@ void Butterfly::Initialize(float screenWidth, float screenHeight)
 
 	mTextureIds->loadFromFile("Images/Butterfly.jpg");
 
-	mSteeringModule->GetBehavior("Seek")->SetActive(true);
+	//mSteeringModule->GetBehavior("Seek")->SetActive(true);
 	mSteeringModule->GetBehavior("Wander")->SetActive(true);
 
 	mScreenHeight = screenHeight;
 	mScreenWidth = screenWidth;
+
+	maxSpeed = 100.0f;
 }
 
 void Butterfly::Update(sf::Time deltaTime)
@@ -43,6 +45,7 @@ void Butterfly::Update(sf::Time deltaTime)
 	mShape.setPosition(mPosition.x, mPosition.y);
 }
 
-void Butterfly::Render()
+void Butterfly::Render(sf::RenderWindow& window)
 {
+	window.draw(GetShape());
 }

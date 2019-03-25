@@ -5,7 +5,6 @@
     <ClCompile Include="Precompiled.cpp">
       <Filter>Precompiled</Filter>
     </ClCompile>
-    <ClCompile Include="Character.cpp" />
     <ClCompile Include="SteeringBehavior.cpp">
       <Filter>Butterflies</Filter>
     </ClCompile>
@@ -21,6 +20,12 @@
     <ClCompile Include="MathUtilties.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Precompiled">
@@ -32,12 +37,14 @@
     <Filter Include="Utilities">
       <UniqueIdentifier>{c48d3f36-7d89-491e-aa49-fd5a66b7a1d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Character">
+      <UniqueIdentifier>{d42e3178-86ef-486e-9340-c231db1c36dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Precompiled.h">
       <Filter>Precompiled</Filter>
     </ClInclude>
-    <ClInclude Include="Character.h" />
     <ClInclude Include="Agent.h">
       <Filter>Butterflies</Filter>
     </ClInclude>
@@ -55,6 +62,12 @@
     </ClInclude>
     <ClInclude Include="MathUtilites.h">
       <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Character</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

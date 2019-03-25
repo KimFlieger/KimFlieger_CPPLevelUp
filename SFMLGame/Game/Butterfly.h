@@ -11,12 +11,12 @@ public:
 		:Agent(*this)
 		, mShape(10.0f)
 	{
-		mDestination = sf::Vector2<float>(100.0f, 100.0f);
+		mDestination = sf::Vector2<float>(10.0f, 10.0f);
 	}
 
 	void Initialize(float screenWidth, float screenHeight);
 	void Update(sf::Time deltaTime);
-	void Render();
+	void Render(sf::RenderWindow& window);
 
 	void ChangeSteering(const char* name, bool active) { mSteeringModule->GetBehavior(name)->SetActive(active); }
 

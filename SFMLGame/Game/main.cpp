@@ -4,14 +4,16 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(844, 750), "BUTTERFLIES!");
+	sf::RenderWindow window(sf::VideoMode(1280, 960), "BUTTERFLIES!");
 	Character character; 
 	std::vector<Butterfly*> butterflies;
+	const unsigned int kButterflySize = 50;
 
-	for(unsigned int i = 0; i < 10; ++i)
+	character.Initialize();
+	for(unsigned int i = 0; i < kButterflySize; ++i)
 	{
 		butterflies.push_back(new Butterfly);
-		butterflies[i]->Initialize(844, 750);
+		butterflies[i]->Initialize(1280, 960);
 	}
 
 	while (window.isOpen())
@@ -25,13 +27,13 @@ int main()
 		}
 		window.clear();
 
-		character.Update();
+		character.Update(time.getElapsedTime());
+		character.Render(window);
 
-		window.draw(character.GetShape());
-		for (unsigned int i = 0; i < 10; ++i)
+		for (unsigned int i = 0; i < kButterflySize; ++i)
 		{
 			butterflies[i]->Update(time.getElapsedTime());
-			window.draw(butterflies[i]->GetShape());
+			butterflies[i]->Render(window);
 		}
 
 		window.display();
