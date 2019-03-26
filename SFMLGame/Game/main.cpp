@@ -25,6 +25,13 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+		{
+			event.type = sf::Event::Closed;
+			window.close();
+		}
+
 		window.clear();
 
 		character.Update(time.getElapsedTime());
@@ -34,6 +41,12 @@ int main()
 		{
 			butterflies[i]->Update(time.getElapsedTime());
 			butterflies[i]->Render(window);
+
+			if (CollsionDetection::CheckCollision(character.GetBoundingCircle(), butterflies[i]->GetBoundingCircle()) 
+				|| character.CheckBulletCollision(butterflies[i]->GetBoundingCircle()))
+			{
+				butterflies[i]->Kill();
+			}
 		}
 
 		window.display();

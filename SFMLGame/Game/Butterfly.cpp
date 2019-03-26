@@ -41,11 +41,16 @@ void Butterfly::Update(sf::Time deltaTime)
 	mHeading = MathUtilites::Normalize(mVelocity);
 	mAngle = atan2(-mHeading.x, mHeading.y) + MathUtilites::kPi;
 
-	mShape.setFillColor(sf::Color::Green);
+	mShape.setFillColor(mColor);
 	mShape.setPosition(mPosition.x, mPosition.y);
 }
 
 void Butterfly::Render(sf::RenderWindow& window)
 {
 	window.draw(mShape);
+}
+
+void Butterfly::Kill()
+{
+	mColor = sf::Color::Red;
 }

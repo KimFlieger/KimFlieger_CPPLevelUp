@@ -17,7 +17,6 @@ namespace
 		return min + (max - min) * (static_cast<float>(rand()) / static_cast<float>(RAND_MAX));
 	}
 
-
 	float maxSpeed = 500.0f;
 	float distanceRad = 100.0f;
 }

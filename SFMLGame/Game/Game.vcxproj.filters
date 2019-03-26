@@ -26,6 +26,9 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Character</Filter>
     </ClCompile>
+    <ClCompile Include="CollisionDetection.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Precompiled">
@@ -68,6 +71,9 @@
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionDetection.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

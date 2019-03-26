@@ -4,7 +4,7 @@
 
 void Character::Initialize()
 {
-	mShape.setFillColor(sf::Color::Red);
+	mShape.setFillColor(sf::Color::Magenta);
 
 	for (unsigned int i = 0; i < kBulletMax; ++i)
 	{
@@ -96,4 +96,21 @@ void Character::Fire()
 	//mBullets[mBulletIndex].Fire(mPosition, velocity);
 	//mBulletIndex = (mBulletIndex + 1) % kMax;
 
+}
+
+bool Character::CheckBulletCollision(sf::CircleShape& circle)
+{
+	for (unsigned int i = 0; i < kBulletMax; ++i)
+	{
+		if (mBullets[i].IsActive())
+		{
+			if (CollsionDetection::CheckCollision(mBullets[i].GetBoundingCircle(), circle))
+			{
+				mBullets[i].Kill();
+				return true;
+			}
+		}
+	}
+
+	return false;
 }

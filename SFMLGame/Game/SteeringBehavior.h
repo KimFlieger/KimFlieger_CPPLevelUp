@@ -18,14 +18,14 @@ namespace AI
 
 		virtual sf::Vector2<float> Calculate(Agent& agent) = 0;
 
-		const char* GetName() const { return mName; }
+		void SetActive(bool a)	{ mActive = a; }
 
-		void SetActive(bool a) { mActive = a; }
-		bool GetActive() { return mActive; }
+		const char* GetName()	const { return mName; }
+		bool GetActive()		const { return mActive; }
 
 	protected:
 		const char* mName;
-		float mWeight;
+		const float mWeight;
 		bool mActive;
 	};
 }
