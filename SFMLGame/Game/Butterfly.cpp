@@ -17,6 +17,13 @@ void Butterfly::Initialize(float screenWidth, float screenHeight)
 	mScreenHeight = screenHeight;
 	mScreenWidth = screenWidth;
 
+	mPosition.x = RandomFloat(0, screenWidth);
+	mPosition.y = RandomFloat(0, screenHeight);
+
+	mShape.setPosition(mPosition.x, mPosition.y);
+
+	mColor = sf::Color(RandomFloat(0, 255), RandomFloat(0, 255), RandomFloat(0, 255));
+
 	maxSpeed = 100.0f;
 }
 
@@ -61,6 +68,5 @@ void Butterfly::Render(sf::RenderWindow& window)
 
 void Butterfly::Kill()
 {
-	mColor = sf::Color::Red;
 	mIsActive = false;
 }

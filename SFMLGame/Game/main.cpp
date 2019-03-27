@@ -2,9 +2,15 @@
 #include "Character.h"
 #include "Butterfly.h"
 
+namespace
+{
+	unsigned int screenWidth = 1280;
+	unsigned int screenHeight = 960;
+}
+
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1280, 960), "BUTTERFLIES!");
+	sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "BUTTERFLIES!");
 	Character character; 
 	std::vector<Butterfly*> butterflies;
 	const unsigned int kButterflySize = 50;
@@ -13,7 +19,7 @@ int main()
 	for(unsigned int i = 0; i < kButterflySize; ++i)
 	{
 		butterflies.push_back(new Butterfly);
-		butterflies[i]->Initialize(1280, 960);
+		butterflies[i]->Initialize(screenWidth, screenHeight);
 	}
 
 	while (window.isOpen())
