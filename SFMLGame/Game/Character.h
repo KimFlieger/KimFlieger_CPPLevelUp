@@ -30,7 +30,7 @@ protected:
 
 	sf::CircleShape mShape;
 	sf::Vector2<float> mPosition;
-	const double mSpeed = 0.2f;
+	const double mSpeed = 0.3f;
 
 	const unsigned int kBulletMax = 1000;
 	int mBulletIndex = 0;

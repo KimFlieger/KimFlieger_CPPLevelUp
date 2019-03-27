@@ -30,6 +30,7 @@ private:
 
 	sf::Texture mTextureIds[1];
 	sf::Color mColor = sf::Color::Green;
+	bool mIsActive = true;
 	float mScreenHeight;
 	float mScreenWidth;
 	float mAngle;

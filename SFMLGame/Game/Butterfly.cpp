@@ -22,6 +22,11 @@ void Butterfly::Initialize(float screenWidth, float screenHeight)
 
 void Butterfly::Update(sf::Time deltaTime)
 {
+	if (!mIsActive)
+	{
+		return;
+	}
+
 	mDestination.x = (float)sf::Mouse::getPosition().x;
 	mDestination.y = (float)sf::Mouse::getPosition().y;
 
@@ -47,10 +52,15 @@ void Butterfly::Update(sf::Time deltaTime)
 
 void Butterfly::Render(sf::RenderWindow& window)
 {
+	if (!mIsActive)
+	{
+		return;
+	}
 	window.draw(mShape);
 }
 
 void Butterfly::Kill()
 {
 	mColor = sf::Color::Red;
+	mIsActive = false;
 }
