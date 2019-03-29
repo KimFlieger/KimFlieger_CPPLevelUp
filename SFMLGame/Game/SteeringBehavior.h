@@ -14,9 +14,11 @@ namespace AI
 
 		}
 
-		~SteeringBehavior() {}
+		~SteeringBehavior()								= default;
+		SteeringBehavior(const SteeringBehavior& lhs)	= default;
+		SteeringBehavior(SteeringBehavior&& lhs)		= default;
 
-		virtual sf::Vector2<float> Calculate(Agent& agent) = 0;
+		virtual sf::Vector2f Calculate(Agent& agent) = 0;
 
 		void SetActive(bool a)	{ mActive = a; }
 

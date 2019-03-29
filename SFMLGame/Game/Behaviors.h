@@ -18,7 +18,7 @@ namespace
 	}
 
 	float maxSpeed = 500.0f;
-	float distanceRad = 100.0f;
+	constexpr float distanceRad = 100.0f;
 }
 
 class SeekBehavior : public SteeringBehavior
@@ -30,15 +30,17 @@ public:
 
 	}
 
-	~SeekBehavior() {}
+	~SeekBehavior()							= default;
+	SeekBehavior(const SeekBehavior& lhs)	= default;
+	SeekBehavior(SeekBehavior&& lhs)		= default;
 
 	const char* GetName() { return "Seek"; }
 
-	virtual sf::Vector2<float> Calculate(Agent& agent) override
+	virtual sf::Vector2f Calculate(Agent& agent) override
 	{
-		if (agent.GetDestination() == agent.GetPosition()) return sf::Vector2<float>();
+		if (agent.GetDestination() == agent.GetPosition()) return sf::Vector2f();
 
-		sf::Vector2<float> desiredVelocity = MathUtilites::Normalize(agent.GetDestination() - agent.GetPosition()) * maxSpeed;
+		sf::Vector2f desiredVelocity = MathUtilites::Normalize(agent.GetDestination() - agent.GetPosition()) * maxSpeed;
 
 		return (desiredVelocity - agent.GetVelocity());
 	}
@@ -50,38 +52,33 @@ class WanderBehavior : public SteeringBehavior
 public:
 	WanderBehavior()
 		:SteeringBehavior("Wander")
+		, target(0.0f, 0.0f)
 	{
 
 	}
 
+	~WanderBehavior()							= default;
+	WanderBehavior(const WanderBehavior& lhs)	= default;
+	WanderBehavior(WanderBehavior&& lhs)		= default;
+
 	const char* GetName() { return "Wander"; }
 
-	~WanderBehavior() {}
-
-	virtual sf::Vector2<float> Calculate(Agent& agent) override
+	virtual sf::Vector2f Calculate(Agent& agent) override
 	{
-		if (agent.GetDestination() == agent.GetPosition()) return sf::Vector2<float>();
+		if (agent.GetDestination() == agent.GetPosition()) return sf::Vector2f();
 
-		float wanderDistance = 100.0f;
-		float wanderRadius = 50.0f;
 
-		target += sf::Vector2<float>(RandomFloat(-10.0f, 10.0f), RandomFloat(-10.0f, 10.0f));
-		target = MathUtilites::Normalize(target) * wanderRadius;
+		target += sf::Vector2f(RandomFloat(-10.0f, 10.0f), RandomFloat(-10.0f, 10.0f));
+		target = MathUtilites::Normalize(target) * mWanderRadius;
 
-		sf::Vector2<float> center = agent.GetPosition() + agent.GetHeading() * wanderDistance;
-		sf::Vector2<float> moveDirection = target + agent.GetHeading() * wanderDistance;
+		sf::Vector2f moveDirection = target + agent.GetHeading() * mWanderRadius;
 
-		//X::Math::Circle wanderCircle = X::Math::Circle(center, wanderRadius);
-		//X::Math::Circle targetCircle = X::Math::Circle(target + center, 2.0f);
-
-		//X::DrawScreenCircle(wanderCircle, X::Math::Vector4::Blue());
-		//X::DrawScreenCircle(targetCircle, X::Math::Vector4::Orange());
-
-		sf::Vector2<float> desiredVelocity = MathUtilites::Normalize(moveDirection) * maxSpeed;
+		sf::Vector2f desiredVelocity = MathUtilites::Normalize(moveDirection) * maxSpeed;
 
 		return (desiredVelocity - agent.GetVelocity());
 	}
 
 public:
-	sf::Vector2<float> target;
+	sf::Vector2f target;
+	static constexpr float mWanderRadius = 50.0f;
 };

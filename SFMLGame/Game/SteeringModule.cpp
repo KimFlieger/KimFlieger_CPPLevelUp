@@ -3,17 +3,6 @@
 
 using namespace AI;
 
-SteeringModule::SteeringModule(Agent& agent)
-	:mAgent(agent)
-{
-
-}
-
-SteeringModule::~SteeringModule()
-{
-
-}
-
 void SteeringModule::AddBehavior(SteeringBehavior* behavior)
 {
 	mBehaviors.push_back(behavior);

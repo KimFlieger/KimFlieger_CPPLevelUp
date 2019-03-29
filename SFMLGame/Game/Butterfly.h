@@ -11,8 +11,12 @@ public:
 		:Agent(*this)
 		, mBoundingCircle(25.0f)
 	{
-		mDestination = sf::Vector2<float>(10.0f, 10.0f);
+		mDestination = sf::Vector2f(10.0f, 10.0f);
 	}
+
+	~Butterfly()					= default;
+	Butterfly(const Butterfly& lhs) = default;
+	Butterfly(Butterfly&& lhs)		= default;
 
 	void Initialize(float screenWidth, float screenHeight);
 	void Update(float deltaTime);

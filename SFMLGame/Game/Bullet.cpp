@@ -23,7 +23,7 @@ void Bullet::Render(sf::RenderWindow& window)
 	}
 }
 
-void Bullet::Fire(sf::Vector2<float> pos, sf::Vector2<float> vel)
+void Bullet::Fire(sf::Vector2f pos, sf::Vector2f vel)
 {
 	mPosition = pos;
 	mVelocity = vel;

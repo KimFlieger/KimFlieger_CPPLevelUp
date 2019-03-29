@@ -3,20 +3,10 @@
 class Bullet
 {
 public:
-	Bullet()
-		:mCircle(5)
-	{
-
-	}
-	~Bullet()
-	{
-
-	}
-
 	void Load();
 	void Update(float deltaTime);
 	void Render(sf::RenderWindow& window);
-	void Fire(sf::Vector2<float> pos, sf::Vector2<float> vel);
+	void Fire(sf::Vector2f pos, sf::Vector2f vel);
 	void Kill();
 
 	bool IsActive() const					{ return mActive; }
@@ -24,9 +14,9 @@ public:
 
 protected:
 	//sf::Sprite mSprite;
-	sf::CircleShape mCircle;
-	sf::Vector2<float> mPosition;
-	sf::Vector2<float> mVelocity;
+	sf::CircleShape mCircle = sf::CircleShape(5.0f);
+	sf::Vector2f mPosition;
+	sf::Vector2f mVelocity;
 
 	bool mActive = false;
 };

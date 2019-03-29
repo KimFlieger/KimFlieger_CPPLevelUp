@@ -85,7 +85,7 @@ void Character::Fire()
 
 	sf::Vector2f velocity = bulletDirection * magnitude;
 
-	sf::Vector2f mOffset = mPosition + sf::Vector2f(55.0f, 50.0f);
+	sf::Vector2f mOffset = mPosition + sf::Vector2f(55.0f, 50.0f); //For the gun
 
 	//Middle shot
 	mBullets[mBulletIndex].Fire(mOffset, velocity);

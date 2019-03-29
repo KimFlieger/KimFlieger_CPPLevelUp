@@ -7,17 +7,24 @@ namespace AI
 	class SteeringModule
 	{
 	public:
-		SteeringModule(Agent& agent);
-		~SteeringModule();
+		SteeringModule(Agent& agent)
+			:mAgent(agent)
+		{
+
+		}
+
+		~SteeringModule()							= default;
+		SteeringModule(const SteeringModule& lhs)	= default;
+		SteeringModule(SteeringModule&& lhs)		= default;
 
 		void AddBehavior(SteeringBehavior* behavior);
 		SteeringBehavior* GetBehavior(const char* name);
 
 		void Purge();
 
-		sf::Vector2<float> Calculate()
+		sf::Vector2f Calculate()
 		{
-			sf::Vector2<float> total;
+			sf::Vector2f total;
 
 			for (int i = 0; i < mBehaviors.size(); ++i)
 			{

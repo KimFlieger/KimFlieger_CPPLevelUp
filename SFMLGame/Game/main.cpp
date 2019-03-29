@@ -4,22 +4,20 @@
 
 namespace
 {
+	const unsigned int kButterflySize = 50;
 	unsigned int screenWidth = 1280;
 	unsigned int screenHeight = 960;
 
 	sf::Texture mBackgroundTexture;
 	sf::Sprite	mBackgroundSprite;
-}
-
-int main()
-{
-	sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "BUTTERFLIES!");
 	Character character; 
 	std::vector<Butterfly*> butterflies;
-	const unsigned int kButterflySize = 50;
+}
 
+void Initialize()
+{
 	character.Initialize();
-	for(unsigned int i = 0; i < kButterflySize; ++i)
+	for (unsigned int i = 0; i < kButterflySize; ++i)
 	{
 		butterflies.push_back(new Butterfly);
 		butterflies[i]->Initialize(static_cast<float>(screenWidth), static_cast<float>(screenHeight));
@@ -27,6 +25,12 @@ int main()
 
 	mBackgroundTexture.loadFromFile("../Images/skybackground.png");
 	mBackgroundSprite.setTexture(mBackgroundTexture);
+}
+
+int main()
+{
+	sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "BUTTERFLIES!");
+	Initialize();
 
 	while (window.isOpen())
 	{
@@ -61,8 +65,6 @@ int main()
 		for (unsigned int i = 0; i < kButterflySize; ++i)
 		{
 			butterflies[i]->Update(time.getElapsedTime().asSeconds());
-			butterflies[i]->Render(window);
-
 			if (butterflies[i]->GetActive())
 			{
 				if(CollsionDetection::CheckCollision(character.GetBoundingCircle(), butterflies[i]->GetBoundingCircle()) 
@@ -71,6 +73,8 @@ int main()
 					butterflies[i]->Kill();
 				}
 			}
+
+			butterflies[i]->Render(window);
 		}
 
 		window.display();

@@ -44,7 +44,7 @@ void Butterfly::Update(float deltaTime)
 	mDestination.x = (float)sf::Mouse::getPosition().x;
 	mDestination.y = (float)sf::Mouse::getPosition().y;
 
-	sf::Vector2<float> force = mSteeringModule->Calculate();
+	sf::Vector2f force = mSteeringModule->Calculate();
 	
 	mVelocity.x += force.x * deltaTime;
 	mVelocity.y += force.y * deltaTime;
