@@ -1,29 +1,37 @@
 #include "Precompiled.h"
 #include "Character.h"
 #include "SFML/Window/Keyboard.hpp"
+#include "SFML/Window/Mouse.hpp"
 
 void Character::Initialize()
 {
-	mShape.setFillColor(sf::Color::Magenta);
-
 	for (unsigned int i = 0; i < kBulletMax; ++i)
 	{
 		mBullets[i].Load();
 	}
+	
+	mTexture.loadFromFile("../Images/GhafurWithShotGun.png");
+	mSprite.setTexture(mTexture);
+	mSprite.setScale(sf::Vector2f(0.2f, 0.2f));
+	mSprite.setOrigin(sf::Vector2f(100.0f, 100.0f));
 }
 
 void Character::Render(sf::RenderWindow& window)
 {
-	window.draw(mShape);
+	window.draw(mSprite);
 
 	for (unsigned int i = 0; i < kBulletMax; ++i)
 	{
 		mBullets[i].Render(window);
 	}
+
+	mMousePosition = sf::Mouse::getPosition(window);
 }
 
-void Character::Update(sf::Time deltaTime)
+void Character::Update(float deltaTime)
 {
+	mCurrentTime += deltaTime;
+
 	for (unsigned int i = 0; i < kBulletMax; ++i)
 	{
 		mBullets[i].Update(deltaTime);
@@ -31,71 +39,58 @@ void Character::Update(sf::Time deltaTime)
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		mPosition.x += mSpeed;
+		mPosition.x += kSpeed;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		mPosition.x -= mSpeed;
+		mPosition.x -= kSpeed;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		mPosition.y -= mSpeed;
+		mPosition.y -= kSpeed;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		mPosition.y += mSpeed;
+		mPosition.y += kSpeed;
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	if (mCurrentTime > mBulletWaitTime && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 		Fire();
+		mCurrentTime = 0.0f;
 	}
 
-	mShape.setPosition(mPosition);
+	mBoundingCircle.setPosition(mPosition);
+	mSprite.setPosition(mPosition);
 }
 
 void Character::Fire()
 {
-	sf::Vector2<float> velocity(10.0f, -5000.0f);
+	auto bulletDirection = MathUtilites::Normalize(sf::Vector2<float>(static_cast<float>(mMousePosition.x), static_cast<float>(mMousePosition.y)) - mPosition);
+	constexpr float magnitude = 5000.0f;
+	
+	sf::Vector2f rightBullet = MathUtilites::Rotate(bulletDirection, kBulletAngle);
+	sf::Vector2f leftBullet = MathUtilites::Rotate(bulletDirection, -kBulletAngle);
+
+	sf::Vector2f velocity = bulletDirection * magnitude;
+
+	sf::Vector2f mOffset = mPosition + sf::Vector2f(55.0f, 50.0f);
 
 	//Middle shot
-	mBullets[mBulletIndex].Fire(mPosition, velocity);
-	mBulletIndex = (mBulletIndex + 1) % kBulletMax;
+	mBullets[mBulletIndex].Fire(mOffset, velocity);
+	mBulletIndex = (mBulletIndex++) % kBulletMax;
 
-	////Right Shot
-	//velocity.x = EnVelx;
+	//Right Shot
+	velocity = rightBullet * magnitude;
 
-	//mBullets[mBulletIndex].Fire(mPosition, velocity);
-	//mBulletIndex = (mBulletIndex + 1) % kMax;
+	mBullets[mBulletIndex].Fire(mOffset, velocity);
+	mBulletIndex = (mBulletIndex++) % kBulletMax;
 
-	////Left Shot
-	//velocity.x = -EnVelx;
+	//Left Shot
+	velocity = leftBullet * magnitude;
 
-	//mBullets[mBulletIndex].Fire(mPosition, velocity);
-	//mBulletIndex = (mBulletIndex + 1) % kMax;
-
-	////BACK ONES
-
-	////Right shot
-	//velocity.y = 500;
-	//velocity.x = EnVelx;
-
-	//mBullets[mBulletIndex].Fire(mPosition, velocity);
-	//mBulletIndex = (mBulletIndex + 1) % kMax;
-
-	////Left shot
-	//velocity.x = -EnVelx;
-
-	//mBullets[mBulletIndex].Fire(mPosition, velocity);
-	//mBulletIndex = (mBulletIndex + 1) % kMax;
-
-
-	////Middle shot
-	//velocity.x = 0;
-
-	//mBullets[mBulletIndex].Fire(mPosition, velocity);
-	//mBulletIndex = (mBulletIndex + 1) % kMax;
-
+	mBullets[mBulletIndex].Fire(mOffset, velocity);
+	mBulletIndex = (mBulletIndex++) % kBulletMax;
 }
 
 bool Character::CheckBulletCollision(sf::CircleShape& circle)

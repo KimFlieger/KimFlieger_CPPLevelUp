@@ -9,7 +9,6 @@ void Butterfly::Initialize(float screenWidth, float screenHeight)
 	mSteeringModule->AddBehavior(new SeekBehavior());
 	mSteeringModule->AddBehavior(new WanderBehavior());
 
-	mTextureIds->loadFromFile("Images/Butterfly.jpg");
 
 	//mSteeringModule->GetBehavior("Seek")->SetActive(true);
 	mSteeringModule->GetBehavior("Wander")->SetActive(true);
@@ -20,14 +19,22 @@ void Butterfly::Initialize(float screenWidth, float screenHeight)
 	mPosition.x = RandomFloat(0, screenWidth);
 	mPosition.y = RandomFloat(0, screenHeight);
 
-	mShape.setPosition(mPosition.x, mPosition.y);
+	mBoundingCircle.setPosition(mPosition.x, mPosition.y);
 
-	mColor = sf::Color(RandomFloat(0, 255), RandomFloat(0, 255), RandomFloat(0, 255));
+
+	mTexture.loadFromFile("../Images/BlueButterfly.png");
+
+	mSprite.setTexture(mTexture);
+	mSprite.setScale(sf::Vector2f(0.1f, 0.1f));
+	mSprite.setOrigin(sf::Vector2f(25.0f, 100.0f));
+	mSprite.setColor(sf::Color(RandomFloat(0, 255), RandomFloat(0, 255), RandomFloat(0, 255)));
+	//mColor = sf::Color(RandomFloat(0, 255), RandomFloat(0, 255), RandomFloat(0, 255));
 
 	maxSpeed = 100.0f;
+	mIsActive = true;
 }
 
-void Butterfly::Update(sf::Time deltaTime)
+void Butterfly::Update(float deltaTime)
 {
 	if (!mIsActive)
 	{
@@ -39,11 +46,11 @@ void Butterfly::Update(sf::Time deltaTime)
 
 	sf::Vector2<float> force = mSteeringModule->Calculate();
 	
-	mVelocity.x += force.x * deltaTime.asSeconds();
-	mVelocity.y += force.y * deltaTime.asSeconds();
+	mVelocity.x += force.x * deltaTime;
+	mVelocity.y += force.y * deltaTime;
 
-	mPosition.x += mVelocity.x * deltaTime.asSeconds();
-	mPosition.y += mVelocity.y * deltaTime.asSeconds();
+	mPosition.x += mVelocity.x * deltaTime;
+	mPosition.y += mVelocity.y * deltaTime;
 
 	if (mPosition.x < 0) mPosition.x += mScreenWidth;
 	if (mPosition.x > mScreenWidth) mPosition.x -= mScreenWidth;
@@ -53,8 +60,9 @@ void Butterfly::Update(sf::Time deltaTime)
 	mHeading = MathUtilites::Normalize(mVelocity);
 	mAngle = atan2(-mHeading.x, mHeading.y) + MathUtilites::kPi;
 
-	mShape.setFillColor(mColor);
-	mShape.setPosition(mPosition.x, mPosition.y);
+	mBoundingCircle.setPosition(mPosition.x, mPosition.y);
+
+	mSprite.setPosition(mPosition);
 }
 
 void Butterfly::Render(sf::RenderWindow& window)
@@ -63,7 +71,7 @@ void Butterfly::Render(sf::RenderWindow& window)
 	{
 		return;
 	}
-	window.draw(mShape);
+	window.draw(mSprite);
 }
 
 void Butterfly::Kill()

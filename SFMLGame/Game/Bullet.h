@@ -4,7 +4,7 @@ class Bullet
 {
 public:
 	Bullet()
-		:mCircle(10)
+		:mCircle(5)
 	{
 
 	}
@@ -14,7 +14,7 @@ public:
 	}
 
 	void Load();
-	void Update(sf::Time deltaTime);
+	void Update(float deltaTime);
 	void Render(sf::RenderWindow& window);
 	void Fire(sf::Vector2<float> pos, sf::Vector2<float> vel);
 	void Kill();

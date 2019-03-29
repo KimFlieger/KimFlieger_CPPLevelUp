@@ -6,6 +6,9 @@ namespace
 {
 	unsigned int screenWidth = 1280;
 	unsigned int screenHeight = 960;
+
+	sf::Texture mBackgroundTexture;
+	sf::Sprite	mBackgroundSprite;
 }
 
 int main()
@@ -19,8 +22,11 @@ int main()
 	for(unsigned int i = 0; i < kButterflySize; ++i)
 	{
 		butterflies.push_back(new Butterfly);
-		butterflies[i]->Initialize(screenWidth, screenHeight);
+		butterflies[i]->Initialize(static_cast<float>(screenWidth), static_cast<float>(screenHeight));
 	}
+
+	mBackgroundTexture.loadFromFile("../Images/skybackground.png");
+	mBackgroundSprite.setTexture(mBackgroundTexture);
 
 	while (window.isOpen())
 	{
@@ -38,20 +44,32 @@ int main()
 			window.close();
 		}
 
-		window.clear();
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			for (unsigned int i = 0; i < kButterflySize; ++i)
+			{
+				butterflies[i]->Initialize(static_cast<float>(screenWidth), static_cast<float>(screenHeight));
+			}
+		}
 
-		character.Update(time.getElapsedTime());
+		window.clear();
+		window.draw(mBackgroundSprite);
+
+		character.Update(time.getElapsedTime().asSeconds());
 		character.Render(window);
 
 		for (unsigned int i = 0; i < kButterflySize; ++i)
 		{
-			butterflies[i]->Update(time.getElapsedTime());
+			butterflies[i]->Update(time.getElapsedTime().asSeconds());
 			butterflies[i]->Render(window);
 
-			if (CollsionDetection::CheckCollision(character.GetBoundingCircle(), butterflies[i]->GetBoundingCircle()) 
-				|| character.CheckBulletCollision(butterflies[i]->GetBoundingCircle()))
+			if (butterflies[i]->GetActive())
 			{
-				butterflies[i]->Kill();
+				if(CollsionDetection::CheckCollision(character.GetBoundingCircle(), butterflies[i]->GetBoundingCircle()) 
+					|| character.CheckBulletCollision(butterflies[i]->GetBoundingCircle()))
+				{
+					butterflies[i]->Kill();
+				}
 			}
 		}
 

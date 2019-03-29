@@ -3,15 +3,14 @@
 
 void Bullet::Load()
 {
-	//mSprite.setTexture(texturename);
-	mCircle.setFillColor(sf::Color::Blue);
+	mCircle.setFillColor(sf::Color::Black);
 }
 
-void Bullet::Update(sf::Time deltaTime)
+void Bullet::Update(float deltaTime)
 {
 	if (mActive)
 	{
-		mPosition += mVelocity * deltaTime.asSeconds();
+		mPosition += mVelocity * deltaTime;
 	}
 }
 
@@ -19,12 +18,7 @@ void Bullet::Render(sf::RenderWindow& window)
 {
 	if (mActive)
 	{
-		sf::Vector2<float> renderPosition;
-
-		renderPosition.x = mPosition.x - (10.0f);
-		renderPosition.y = mPosition.y - (10.0f);
-
-		mCircle.setPosition(renderPosition);
+		mCircle.setPosition(mPosition);
 		window.draw(mCircle);
 	}
 }
