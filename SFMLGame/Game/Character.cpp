@@ -10,10 +10,10 @@ void Character::Initialize()
 		mBullets[i].Load();
 	}
 	
-	mTexture.loadFromFile("../Images/GhafurWithShotGun.png");
+	mTexture.loadFromFile("../Images/GhafurWithShotGunAndWings.png");
 	mSprite.setTexture(mTexture);
-	mSprite.setScale(sf::Vector2f(0.2f, 0.2f));
-	mSprite.setOrigin(sf::Vector2f(100.0f, 100.0f));
+	mSprite.setScale(mScale);
+	mSprite.setOrigin(mOrigin);
 }
 
 void Character::Render(sf::RenderWindow& window)
@@ -62,6 +62,17 @@ void Character::Update(float deltaTime)
 
 	mBoundingCircle.setPosition(mPosition);
 	mSprite.setPosition(mPosition);
+
+	//if (mPosition.x < mMousePosition.x)
+	//{
+	//	mSprite.setScale(sf::Vector2f(mScale.x, mScale.y));
+	//	mSprite.setOrigin(sf::Vector2f(mOrigin.x, mOrigin.y));
+	//}
+	//else
+	//{
+	//	mSprite.setScale(sf::Vector2f(-mScale.x, mScale.y));
+	//	mSprite.setOrigin(sf::Vector2f(-(mOrigin.x * 2), mOrigin.y));
+	//}
 }
 
 void Character::Fire()
